@@ -8,8 +8,8 @@ class UserListItem extends Component {
     render() {
         return(
             <tr>
-                <td>{this.props.user.name}</td>
-                <td>{this.props.user.year}</td>
+                {/* <td>{data.id}</td>
+                <td>{data.title}</td> */}
             </tr>
         )
     }

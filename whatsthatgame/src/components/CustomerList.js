@@ -15,9 +15,9 @@ class CustomerList extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {this.props.customers.map(customer => <CustomerListItem
+                    {/* {this.props.customers.map(customer => <CustomerListItem
                         customer={customer}
-                    />)}
+                    />)} */}
                 </tbody>
             </table>
         )
