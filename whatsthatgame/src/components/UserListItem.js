@@ -1,19 +1,41 @@
 import React, { Component } from 'react';
+import * as Actions from '../redux/actions/getAllGames';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 class UserListItem extends Component {
     constructor(props) {
         super(props);
     }
 
+    componentDidMount() {
+        this.props.getAllGames();
+    }
+
     render() {
         return(
-            <tr>
-                {/* <td>{data.id}</td>
-                <td>{data.title}</td> */}
-            </tr>
+            <tbody>
+                {this.props.data.map(game => (
+                    <tr>
+                        <td>{game.id}</td>
+                        <td>{game.title}</td>
+                    </tr>
+                ))}
+            </tbody>
         )
     }
 
 }
 
-export default UserListItem;
+function mapStateToProps(state, props) {
+    return {
+        loading: state.gamesReducer.isLoading,
+        data: state.gamesReducer.data
+    }
+}
+
+function mapDisptachToProps(dispatch) {
+    return bindActionCreators(Actions, dispatch);
+}
+
+export default connect(mapStateToProps, mapDisptachToProps)(UserListItem);
