@@ -19,6 +19,8 @@ class UserListItem extends Component {
                     <tr>
                         <td>{game.id}</td>
                         <td>{game.title}</td>
+                        <td>{game.description}</td>
+                        <td>{game.year}</td>
                     </tr>
                 ))}
             </tbody>

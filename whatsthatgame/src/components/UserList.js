@@ -17,7 +17,9 @@ class UserList extends Component {
                 <table className="table table-striped">
                     <thead>
                         <tr>
+                            <th>ID</th>
                             <th>Name</th>
+                            <th>Description</th>
                             <th>Year</th>
                         </tr>
                     </thead>
