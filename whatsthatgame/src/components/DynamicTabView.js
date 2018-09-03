@@ -25,6 +25,7 @@ const styles = theme => ({
     root: {
         flexGrow: 1,
         backgroundColor: theme.palette.background.paper,
+        backgroundColor: (64, 70, 70)
     },
 });
 
@@ -52,7 +53,7 @@ class DynamicTabView extends Component {
                     <Tabs value={value} onChange={this.handleChange}>
                         <Tab label="Item One" />
                         <Tab label="Item Two" />
-                        <Tab label="Item Three" href="#basic-tabs" />
+                        <Tab label="Item Three" />
                     </Tabs>
                 </AppBar>
                 {value === 0 && <TabContainer><UserList /></TabContainer>}
@@ -63,8 +64,8 @@ class DynamicTabView extends Component {
     }
 
 }
-    DynamicTabView.propTypes = {
-        classes: PropTypes.object.isRequired,
-        };
+DynamicTabView.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
 
 export default withStyles(styles)(DynamicTabView);

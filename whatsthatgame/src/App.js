@@ -15,22 +15,10 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-
-        <div classname="Container">
-        
-            <form className="form-inline" onSubmit={this.handleSubmit}>
-
-              <div className="form-group">
-                  <label for="Id">Id:</label>
-                  <input className="form-control" name=""></input>
-              </div>
-            </form>
-            <Provider store={store}>
-              <DynamicTabView/>
-            </Provider>
-          
-        </div>
+      <div class="App">
+        <Provider store={store}>
+          <DynamicTabView />
+        </Provider>
       </div>
     );
   }

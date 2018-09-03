@@ -7,7 +7,7 @@ import Paper from '@material-ui/core/Paper';
 
 import UserListItem from './UserListItem.js';
 import AddGameModal from './AddGameModal.js';
-import { Button } from '@material-ui/core';
+import { Button, withStyles } from '@material-ui/core';
 
 import { getAllGames } from '../redux/actions/getAllGames';
 import { bindActionCreators } from 'redux';
@@ -48,8 +48,13 @@ class UserList extends Component {
     }
 }
 
-function mapDisptachToProps(dispatch) {
+
+function mapDispatchToProps(dispatch) {
     return bindActionCreators({ getAllGames }, dispatch);
 }
+// export default compose(
+//     withStyles(styles),
+//     connect(null, mapDisptachToProps)
+// )(UserList)
 
-export default connect(null, mapDisptachToProps)(UserList);
+export default connect(null, mapDispatchToProps)(UserList);

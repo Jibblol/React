@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -6,6 +7,12 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+
+const styles = theme => ({
+    button: {
+        margin: 5,
+    },
+});
 
 class AddGameModal extends Component {
     constructor(props) {
@@ -45,9 +52,11 @@ class AddGameModal extends Component {
     }
 
     render() {
+        const { classes } = this.props;
+
         return (
             <div>
-                <Button onClick={this.handleClickOpen} variant="contained" color="primary">Add game</Button>
+                <Button onClick={this.handleClickOpen} className={classes.button} variant="contained" color="primary">Add game</Button>
                 <Dialog open={this.state.open} onClose={this.handleClose} aria-labelledby="form-dialog-title">
                     <DialogTitle id="form-dialog-title">Add a game</DialogTitle>
                     <DialogContent onSubmit={this.handleSubmit}>
@@ -65,7 +74,6 @@ class AddGameModal extends Component {
                         fullWidth
                         />
                         <TextField
-                        autoFocus
                         margin="dense"
                         name="description"
                         value={this.state.description}
@@ -74,7 +82,6 @@ class AddGameModal extends Component {
                         fullWidth
                         />
                         <TextField
-                        autoFocus
                         margin="dense"
                         name="year"
                         value={this.state.year}
@@ -97,4 +104,4 @@ class AddGameModal extends Component {
     }
 }
 
-export default AddGameModal;
+export default withStyles(styles)(AddGameModal);
