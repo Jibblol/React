@@ -56,7 +56,7 @@ class AddGameModal extends Component {
 
         return (
             <div>
-                <Button onClick={this.handleClickOpen} className={classes.button} variant="contained" color="primary">Add game</Button>
+                <Button onClick={this.handleClickOpen} className={classes.button} variant="contained">Add game</Button>
                 <Dialog open={this.state.open} onClose={this.handleClose} aria-labelledby="form-dialog-title">
                     <DialogTitle id="form-dialog-title">Add a game</DialogTitle>
                     <DialogContent onSubmit={this.handleSubmit}>
