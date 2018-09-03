@@ -47,7 +47,7 @@ class AddGameModal extends Component {
     render() {
         return (
             <div>
-                <Button onClick={this.handleClickOpen}>Add game</Button>
+                <Button onClick={this.handleClickOpen} variant="contained" color="primary">Add game</Button>
                 <Dialog open={this.state.open} onClose={this.handleClose} aria-labelledby="form-dialog-title">
                     <DialogTitle id="form-dialog-title">Add a game</DialogTitle>
                     <DialogContent onSubmit={this.handleSubmit}>

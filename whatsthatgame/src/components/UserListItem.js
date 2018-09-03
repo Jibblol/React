@@ -40,20 +40,6 @@ class UserListItem extends Component {
                 </TableRow>
                 ))}
             </TableBody>
-
-            // <tbody>
-            //     {this.props.data.map(game => (
-            //         <tr>
-            //             <td>{game.id}</td>
-            //             <td>{game.title}</td>
-            //             <td>{game.description}</td>
-            //             <td>{game.year}</td>
-            //             <td>
-            //                 <button onClick={() => this.props.deleteGame(game.id)} type="delete">Delete</button>
-            //             </td>
-            //         </tr>
-            //     ))}
-            // </tbody>
         )
     }
 
