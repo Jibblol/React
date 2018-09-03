@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
+import { withStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import Typography from '@material-ui/core/Typography';
 import UserList from './UserList.js';
 import CustomerList from './CustomerList.js';
+import { Divider } from '@material-ui/core';
 
 class DynamicTabView extends Component {
     constructor(props) {
@@ -9,6 +15,15 @@ class DynamicTabView extends Component {
 
     render() {
         return (
+            // <div>
+            //     <AppBar position="static" color="default">
+            //         <Tabs>
+            //             <Tab label="Item One" />
+            //             <Tab label="Item Two" />
+            //             <Tab label="Item Three" />
+            //         </Tabs>
+            //     </AppBar>
+            // </div>
 
             <div>
                 <ul class="nav nav-tabs">
@@ -29,10 +44,8 @@ class DynamicTabView extends Component {
                     </div>
                 </div>
             </div>
-
         )
     }
-
 }
 
 export default DynamicTabView;

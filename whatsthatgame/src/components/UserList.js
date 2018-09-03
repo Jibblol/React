@@ -1,4 +1,11 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
 
 import UserListItem from './UserListItem.js';
 import AddGameModal from './AddGameModal.js';
@@ -7,27 +14,25 @@ class UserList extends Component {
     constructor(props) {
         super(props);
     }
-
+      
     render() {
         return(
             <div id="home" class="tab-pane fade in active">
-                <h3>Games</h3>
-                <p>Some content.</p>
-                <AddGameModal />
-                <div class="table-responsive">
-                    <table className="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Description</th>
-                                <th>Year</th>
-                            </tr>
-                        </thead>
-                            <UserListItem/>
-                    </table>
-                </div>
-                {/* <UserList games={this.props.games} /> */}
+                <Paper>
+                    <Table>
+                        <TableHead>
+                        <TableRow>
+                            <TableCell>Id</TableCell>
+                            <TableCell>Name</TableCell>
+                            <TableCell>Description</TableCell>
+                            <TableCell>Year</TableCell>
+                        </TableRow>
+                        </TableHead>
+                        
+                        <UserListItem />
+                        
+                    </Table>
+                </Paper>
             </div>
         )
     }
