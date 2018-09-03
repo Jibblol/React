@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import * as Actions from '../redux/actions/getAllGames';
+import { deleteGame } from '../redux/actions/deleteGame';
+import { getAllGames } from '../redux/actions/getAllGames';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -13,7 +14,7 @@ class UserListItem extends Component {
     }
 
     render() {
-        return(
+        return (
             <tbody>
                 {this.props.data.map(game => (
                     <tr>
@@ -21,6 +22,9 @@ class UserListItem extends Component {
                         <td>{game.title}</td>
                         <td>{game.description}</td>
                         <td>{game.year}</td>
+                        <td>
+                            <button onClick={() => this.props.deleteGame(game.id)} type="delete">Delete</button>
+                        </td>
                     </tr>
                 ))}
             </tbody>
@@ -37,7 +41,7 @@ function mapStateToProps(state, props) {
 }
 
 function mapDisptachToProps(dispatch) {
-    return bindActionCreators(Actions, dispatch);
+    return bindActionCreators({ deleteGame, getAllGames }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDisptachToProps)(UserListItem);

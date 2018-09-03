@@ -8,23 +8,23 @@ class DynamicTabView extends Component {
     }
 
     render() {
-        return(
+        return (
 
             <div>
                 <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tab" href="#home">Person</a></li>
-                    <li><a data-toggle="tab" href="#menu1">Kunde</a></li>
-                    <li><a data-toggle="tab" href="#menu2">Flight</a></li>
+                    <li class="active"><a data-toggle="tab" href="#home">Games</a></li>
+                    <li><a data-toggle="tab" href="#menu1">Tab2</a></li>
+                    <li><a data-toggle="tab" href="#menu2">Tab3</a></li>
                 </ul>
                 <div class="tab-content">
                     <UserList />
                     <div id="menu1" class="tab-pane fade">
                         <h3>Menu 1</h3>
                         <p>Some content in menu 1.</p>
-                        <CustomerList customers={this.props.customers} />
+                        <CustomerList />
                     </div>
                     <div id="menu2" class="tab-pane fade">
-                        <h3>Flight</h3>
+                        <h3>Menu2</h3>
                         <p>Some content in menu 2.</p>
                     </div>
                 </div>
