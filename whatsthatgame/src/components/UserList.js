@@ -9,6 +9,7 @@ import Paper from '@material-ui/core/Paper';
 
 import UserListItem from './UserListItem.js';
 import AddGameModal from './AddGameModal.js';
+import AddGameModalWrapped from './AddGameModal.js';
 
 class UserList extends Component {
     constructor(props) {
@@ -18,6 +19,8 @@ class UserList extends Component {
     render() {
         return(
             <div id="home" class="tab-pane fade in active">
+                <AddGameModalWrapped />
+                
                 <Paper>
                     <Table>
                         <TableHead>
