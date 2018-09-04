@@ -5,6 +5,7 @@ import TableCell from '@material-ui/core/TableCell';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
+import Tooltip from '@material-ui/core/Tooltip';
 import { deleteGame } from '../redux/actions/deleteGame';
 import { getAllGames } from '../redux/actions/getAllGames';
 import { bindActionCreators } from 'redux';
@@ -30,12 +31,14 @@ class UserListItem extends Component {
                     <TableCell>{game.description}</TableCell>
                     <TableCell>{game.year}</TableCell>
                     <TableCell>
-                        <IconButton 
-                            aria-label="Delete"
-                            onClick={() => this.props.deleteGame(game.id)}
-                        >
-                            <DeleteIcon />
-                        </IconButton>
+                        <Tooltip title="Delete" placement="right">
+                            <IconButton 
+                                aria-label="Delete"
+                                onClick={() => this.props.deleteGame(game.id)}
+                            >
+                                <DeleteIcon />
+                            </IconButton>
+                        </Tooltip>
                     </TableCell>
                 </TableRow>
                 ))}
