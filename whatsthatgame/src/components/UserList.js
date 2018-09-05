@@ -4,6 +4,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import ThreeSixtyIcon from '@material-ui/icons/ThreeSixty';
 
 import UserListItem from './UserListItem.js';
 import AddGameModal from './AddGameModal.js';
@@ -13,7 +14,6 @@ import { getAllGames } from '../redux/actions/getAllGames';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import ThreeSixtyIcon from '@material-ui/icons/ThreeSixty';
 
 class UserList extends Component {
     constructor(props) {
