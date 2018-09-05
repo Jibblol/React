@@ -6,8 +6,6 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import UserList from './UserList.js';
-import CustomerList from './CustomerList.js';
-import { Divider } from '@material-ui/core';
 
 function TabContainer(props) {
     return (
