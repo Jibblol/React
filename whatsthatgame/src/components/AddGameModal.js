@@ -1,9 +1,24 @@
 import React, { Component } from 'react';
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+
+const styles = theme => ({
+    button: {
+        margin: 5,
+    },
+});
 
 class AddGameModal extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            open: false,
             title: '',
             description: '',
             year: ''
@@ -12,8 +27,16 @@ class AddGameModal extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    handleClickOpen = () => {
+        this.setState({ open: true });
+    };
+
+    handleClickClose = () => {
+        this.setState({ open: false });
+    };
+
     handleSubmit(event) {
-        fetch('https://localhost:44377/api/todo', {
+        fetch('https://localhost:44363/api/todo', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
@@ -24,58 +47,61 @@ class AddGameModal extends Component {
                 year: this.state.year
             })
         })
+
+        this.handleClickClose();
     }
 
     render() {
+        const { classes } = this.props;
+
         return (
             <div>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                    Open modal
-                </button>
-
-                <div class="modal" id="myModal">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-
-                            <div class="modal-header">
-                                <h4 class="modal-title">Modal Heading</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
-
-                            <div class="modal-body">
-                                <form onSubmit={this.handleSubmit}>
-
-                                    <div class="form-group">
-                                        <label for="Title">Title:</label>
-                                        <input class="form-control" name="title" value={this.state.title} onChange={e => this.setState({ title: e.target.value })} placeholder="Enter movie title"></input>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="Description">Description:</label>
-                                        <input class="form-control" name="description" value={this.state.description} onChange={e => this.setState({ description: e.target.value })} placeholder="Enter genre"></input>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="Year">Year:</label>
-                                        <input class="form-control" name="year" value={this.state.year} onChange={e => this.setState({ year: e.target.value })} placeholder="Enter year of release"></input>
-                                    </div>
-
-                                    <button type="submit" className="btn btn-default">Submit</button>
-
-
-                                </form>
-                            </div>
-
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
+                <Button onClick={this.handleClickOpen} className={classes.button} variant="contained">Add game</Button>
+                <Dialog open={this.state.open} onClose={this.handleClose} aria-labelledby="form-dialog-title">
+                    <DialogTitle id="form-dialog-title">Add a game</DialogTitle>
+                    <DialogContent onSubmit={this.handleSubmit}>
+                        <DialogContentText>
+                        To subscribe to this website, please enter your email address here. We will send
+                        updates occasionally.
+                        </DialogContentText>
+                        <TextField
+                        autoFocus
+                        margin="dense"
+                        name="title"
+                        value={this.state.title}
+                        onChange={e => this.setState({title: e.target.value})}
+                        label="Name"
+                        fullWidth
+                        />
+                        <TextField
+                        margin="dense"
+                        name="description"
+                        value={this.state.description}
+                        onChange={e => this.setState({description: e.target.value})}
+                        label="Description"
+                        fullWidth
+                        />
+                        <TextField
+                        margin="dense"
+                        name="year"
+                        value={this.state.year}
+                        onChange={e => this.setState({year: e.target.value})}
+                        label="Year"
+                        fullWidth
+                        />
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={this.handleClickClose} color="primary">
+                            Cancel
+                        </Button>
+                        <Button color="primary" type="submit" onClick={this.handleSubmit}>
+                            Submit
+                        </Button>
+                    </DialogActions>
+                </Dialog>
             </div>
         )
     }
 }
 
-export default AddGameModal;
+export default withStyles(styles)(AddGameModal);
