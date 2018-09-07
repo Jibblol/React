@@ -6,16 +6,16 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import ThreeSixtyIcon from '@material-ui/icons/ThreeSixty';
 
-import UserListItem from './UserListItem.js';
+import GameListItem from './GameListItem.js';
 import AddGameModal from './AddGameModal.js';
 import { Button, withStyles } from '@material-ui/core';
 
-import { getAllGames } from '../redux/actions/getAllGames';
+import { getAllGames } from '../redux/actions/getAllGames.js';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 
-class UserList extends Component {
+class GameList extends Component {
     constructor(props) {
         super(props);
     }
@@ -40,7 +40,7 @@ class UserList extends Component {
                                 </TableCell>
                             </TableRow>
                         </TableHead>
-                        <UserListItem />
+                        <GameListItem />
                     </Table>
                 </Paper>
             </div>
@@ -57,4 +57,4 @@ function mapDispatchToProps(dispatch) {
 //     connect(null, mapDisptachToProps)
 // )(UserList)
 
-export default connect(null, mapDispatchToProps)(UserList);
+export default connect(null, mapDispatchToProps)(GameList);

@@ -5,7 +5,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
-import UserList from './UserList.js';
+import GameList from './GameList.js';
 
 function TabContainer(props) {
     return (
@@ -48,13 +48,13 @@ class DynamicTabView extends Component {
         return (
             <div className={classes.root}>
                 <AppBar position="static">
-                    <Tabs value={value} onChange={this.handleChange}>
+                    <Tabs value={value} onChange={this.handleChange} centered>
                         <Tab label="Item One" />
                         <Tab label="Item Two" />
                         <Tab label="Item Three" />
                     </Tabs>
                 </AppBar>
-                {value === 0 && <TabContainer><UserList /></TabContainer>}
+                {value === 0 && <TabContainer><GameList /></TabContainer>}
                 {value === 1 && <TabContainer>Item Two</TabContainer>}
                 {value === 2 && <TabContainer>Item Three</TabContainer>}
             </div>
