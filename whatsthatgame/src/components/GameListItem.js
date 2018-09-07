@@ -13,7 +13,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 
-class UserListItem extends Component {
+class GameListItem extends Component {
     constructor(props) {
         super(props);
     }
@@ -65,4 +65,4 @@ function mapDisptachToProps(dispatch) {
     return bindActionCreators({ deleteGame, getAllGames }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDisptachToProps)(UserListItem);
+export default connect(mapStateToProps, mapDisptachToProps)(GameListItem);
