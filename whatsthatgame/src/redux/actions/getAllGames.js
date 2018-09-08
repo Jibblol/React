@@ -4,7 +4,7 @@ export const IS_LOADING = 'IS_LOADING';
 export function getAllGames(){
     return (dispatch) => {
         dispatch(isLoading());
-        fetch('https://localhost:44363/api/todo')
+        fetch('https://localhost:44377/api/todo')
             .then(response => response.json())
             .then(responseJSON => {
                 dispatch(itemsFetchDataSuccess(responseJSON));

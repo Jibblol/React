@@ -36,7 +36,7 @@ class AddGameModal extends Component {
     };
 
     handleSubmit(event) {
-        fetch('https://localhost:44363/api/todo', {
+        fetch('https://localhost:44377/api/todo', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
