@@ -1,9 +1,10 @@
 import { getAllGames } from './getAllGames';
+import Config from '../../config';
 export const DELETE_GAME = 'DELETE_GAME';
 
 export function deleteGame(id) {
     return(dispatch) => {
-        fetch('https://localhost:44377/api/todo/' + id, {
+        fetch(Config.serverUrl + '/api/todo' + id, {
             method: 'DELETE'
         })
         .then(() => {
