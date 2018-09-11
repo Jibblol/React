@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import compose from 'recompose/compose';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -7,6 +8,10 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+
+import { addGame } from '../redux/actions/addGame';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 const styles = theme => ({
     button: {
@@ -36,18 +41,7 @@ class AddGameModal extends Component {
     };
 
     handleSubmit(event) {
-        fetch('https://localhost:44363/api/todo', {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify({
-                title: this.state.title,
-                description: this.state.description,
-                year: this.state.year
-            })
-        })
-
+        this.props.addGame(this.state.title, this.state.description, this.state.year);
         this.handleClickClose();
     }
 
@@ -104,4 +98,11 @@ class AddGameModal extends Component {
     }
 }
 
-export default withStyles(styles)(AddGameModal);
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({ addGame }, dispatch);
+}
+
+export default compose(
+    withStyles(styles),
+    connect (null, mapDispatchToProps)
+)(AddGameModal);

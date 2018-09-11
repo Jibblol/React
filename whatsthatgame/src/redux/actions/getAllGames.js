@@ -1,10 +1,11 @@
+import Config from '../../config';
 export const GET_GAMES = 'GET_GAMES';
 export const IS_LOADING = 'IS_LOADING';
 
 export function getAllGames(){
     return (dispatch) => {
         dispatch(isLoading());
-        fetch('https://localhost:44363/api/todo')
+        fetch(Config.serverUrl + '/api/todo')
             .then(response => response.json())
             .then(responseJSON => {
                 dispatch(itemsFetchDataSuccess(responseJSON));

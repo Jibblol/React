@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 
 import { GET_GAMES, IS_LOADING } from '../actions/getAllGames';
 import { DELETE_GAME } from '../actions/deleteGame';
+import { ADD_GAME } from '../actions/addGame';
 
 let initialGamesReducer = { data: [] };
 
@@ -11,6 +12,9 @@ const gamesReducer = (state = initialGamesReducer, action) => {
             return {...state, data: action.items, isLoading: action.isLoading};
         
         case DELETE_GAME:
+            return {...state, data: action.items};
+
+        case ADD_GAME:
             return {...state, data: action.items};
 
         case IS_LOADING:
