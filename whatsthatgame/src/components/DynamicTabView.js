@@ -57,15 +57,15 @@ class DynamicTabView extends Component {
 
     return (
       <div className={classes.root}>
-        <AppBar position="static">
+        <AppBar position="static" color="inherit">
           <Toolbar>
             <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
                 <MenuIcon />
             </IconButton>
-            {/* <Typography variant="title" color="inherit" className={classes.grow}>
+            <Typography variant="title" color="inherit">
                 News
-            </Typography> */}
-            <Tabs value={value} onChange={this.handleChange} centered>
+            </Typography>
+            <Tabs value={value} onChange={this.handleChange} className={classes.grow} centered>
               <Tab label="Item One" />
               <Tab label="Item Two" />
               <Tab label="Item Three" />
