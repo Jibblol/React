@@ -63,9 +63,9 @@ class DynamicTabView extends Component {
                 <MenuIcon />
             </IconButton>
             <Typography variant="title" color="inherit">
-                News
+                What's That Game?
             </Typography>
-            <Tabs value={value} onChange={this.handleChange} className={classes.grow} centered>
+            <Tabs value={value} onChange={this.handleChange} className={classes.grow} fullWidth>
               <Tab label="Item One" />
               <Tab label="Item Two" />
               <Tab label="Item Three" />

@@ -4,7 +4,7 @@ export const DELETE_GAME = 'DELETE_GAME';
 
 export function deleteGame(id) {
     return(dispatch) => {
-        fetch(Config.serverUrl + '/api/todo' + id, {
+        fetch(Config.serverUrl + '/api/todo/' + id, {
             method: 'DELETE'
         })
         .then(() => {
