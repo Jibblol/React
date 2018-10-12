@@ -8,6 +8,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import AddCircleOutline from '@material-ui/icons/AddCircleOutline';
 
 import { addGame } from '../redux/actions/addGame';
 import { bindActionCreators } from 'redux';
@@ -50,7 +51,10 @@ class AddGameModal extends Component {
 
         return (
             <div>
-                <Button onClick={this.handleClickOpen} className={classes.button} variant="contained">Add game</Button>
+                <Button onClick={this.handleClickOpen}>
+                    Add game
+                    <AddCircleOutline />
+                </Button>
                 <Dialog open={this.state.open} onClose={this.handleClose} aria-labelledby="form-dialog-title">
                     <DialogTitle id="form-dialog-title">Add a game</DialogTitle>
                     <DialogContent onSubmit={this.handleSubmit}>

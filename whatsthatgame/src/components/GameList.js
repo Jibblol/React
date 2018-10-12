@@ -23,7 +23,6 @@ class GameList extends Component {
     render() {
         return (
             <div>
-                <AddGameModal />
                 <Paper>
                     <Table>
                         <TableHead>
@@ -37,6 +36,9 @@ class GameList extends Component {
                                         Refresh
                                         <ThreeSixtyIcon />
                                     </Button>
+                                </TableCell>
+                                <TableCell>
+                                    <AddGameModal />
                                 </TableCell>
                             </TableRow>
                         </TableHead>
