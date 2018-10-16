@@ -11,7 +11,7 @@ import store from "./redux/store";
 class App extends Component {
   render() {
     return (
-      <div class="App">
+      <div class="App col">
         <Provider store={store}>
           <Router>
             <Switch>
