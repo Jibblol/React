@@ -9,10 +9,6 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div class="App">

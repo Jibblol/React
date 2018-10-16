@@ -12,11 +12,3 @@ export function deleteGame(id) {
         })
     }
 }
-
-function itemsDeleteDataSuccess(items) {
-    return {
-        type: 'DELETE_GAME',
-        items,
-        isLoading: false
-    };
-}

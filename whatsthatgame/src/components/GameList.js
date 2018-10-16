@@ -8,7 +8,7 @@ import ThreeSixtyIcon from '@material-ui/icons/ThreeSixty';
 
 import GameListItem from './GameListItem.js';
 import AddGameModal from './AddGameModal.js';
-import { Button, withStyles } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 
 import { getAllGames } from '../redux/actions/getAllGames.js';
 import { bindActionCreators } from 'redux';
@@ -16,10 +16,7 @@ import { connect } from 'react-redux';
 
 
 class GameList extends Component {
-    constructor(props) {
-        super(props);
-    }
-
+    
     render() {
         return (
             <div>
